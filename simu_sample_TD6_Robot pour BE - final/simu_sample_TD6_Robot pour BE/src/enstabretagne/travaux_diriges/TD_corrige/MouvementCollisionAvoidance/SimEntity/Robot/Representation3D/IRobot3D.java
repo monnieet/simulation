@@ -18,5 +18,4 @@ public interface IRobot3D extends IMovable{
 	boolean isBad();
 	
 	Cylinder getLineOfSight();
-	
 }

@@ -15,9 +15,9 @@ import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
-import javafx.scene.shape.Box;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Cylinder;
+import javafx.scene.shape.Box;
 import javafx.scene.shape.DrawMode;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Sphere;
@@ -32,7 +32,6 @@ public class RobotRepresentation3D extends Representation3D{
 	}
 
 	IRobot3D robot3D;
-	Group RobotVision;
 	Group monRobot;
 	Group myworld;
 	@Override
@@ -43,43 +42,62 @@ public class RobotRepresentation3D extends Representation3D{
 		monRobot = new Group();
 		
 		
-		Box v1 = new Box(4,4,0); 
-		Box v2 = new Box(4,4,0);
-		v2.getTransforms().add(new Rotate(45,0,0));
-		v1.setMaterial(new PhongMaterial(Color.GREEN));
-		v2.setMaterial(new PhongMaterial(Color.GREEN));
-		
-		
-		
 		
 		PhongMaterial material;
 		material = new PhongMaterial(robot3D.getColor());
-
-		Sphere s;
-		s= new Sphere(robot3D.getSize());
-		s.setMaterial(new PhongMaterial(Color.BLACK));
-		s.setDrawMode(DrawMode.LINE);
 		
-		s= new Sphere(robot3D.getSize());
-		s.setMaterial(material);
-		monRobot.getChildren().add(s);
-
-		Sphere sx = new Sphere(robot3D.getSize()/5);
-		sx.setTranslateX(robot3D.getSize());
-		sx.setMaterial(new PhongMaterial(Color.BLUE));
-		Sphere sy = new Sphere(robot3D.getSize()/5);
-		sy.setTranslateY(robot3D.getSize());
-		sy.setMaterial(new PhongMaterial(Color.RED));
-		Sphere sz = new Sphere(robot3D.getSize()/5);
-		sz.setTranslateZ(robot3D.getSize());
-		sz.setMaterial(new PhongMaterial(Color.GREEN));
+		Box head = new Box(robot3D.getSize(), robot3D.getSize(), robot3D.getSize());
+		head.setMaterial(material);
+		head.setTranslateZ(robot3D.getSize()/2);
+		monRobot.getChildren().add(head);
 		
+		Cylinder antenne1 = new Cylinder(robot3D.getSize()/7, robot3D.getSize()/3);
+		antenne1.setMaterial(new PhongMaterial(Color.BLACK));
+		antenne1.setRotationAxis(Rotate.X_AXIS);
+		antenne1.setRotate(90);
+		antenne1.setTranslateZ(robot3D.getSize()*7/6);
+		antenne1.setTranslateX(robot3D.getSize()/4);
+		antenne1.setTranslateY(robot3D.getSize()*2/5);
+		monRobot.getChildren().add(antenne1);
 		
-		monRobot.getChildren().add(sx);
-		monRobot.getChildren().add(sy);
-		monRobot.getChildren().add(sz);
-		monRobot.getChildren().add(v1);
-		monRobot.getChildren().add(v2);
+		Cylinder antenne2 = new Cylinder(robot3D.getSize()/7, robot3D.getSize()/3);
+		antenne2.setMaterial(new PhongMaterial(Color.BLACK));
+		antenne2.setRotationAxis(Rotate.X_AXIS);
+		antenne2.setRotate(90);
+		antenne2.setTranslateZ(robot3D.getSize()*7/6);
+		antenne2.setTranslateX(-robot3D.getSize()/4);
+		antenne2.setTranslateY(robot3D.getSize()*2/5);
+		monRobot.getChildren().add(antenne2);
+		
+		Cylinder bras1 = new Cylinder(robot3D.getSize()/5, robot3D.getSize()/3);
+		bras1.setMaterial(new PhongMaterial(Color.BLUE));
+		bras1.setRotationAxis(Rotate.Z_AXIS);
+		bras1.setRotate(90);
+		bras1.setTranslateZ(robot3D.getSize()/2);
+		bras1.setTranslateX(robot3D.getSize()*2/3);
+		monRobot.getChildren().add(bras1);
+		
+		Cylinder bras2 = new Cylinder(robot3D.getSize()/5, robot3D.getSize()/3);
+		bras2.setMaterial(new PhongMaterial(Color.GREEN));
+		bras2.setRotationAxis(Rotate.Z_AXIS);
+		bras2.setRotate(90);
+		bras2.setTranslateZ(robot3D.getSize()/2);
+		bras2.setTranslateX(-robot3D.getSize()*2/3);
+		monRobot.getChildren().add(bras2);
+		
+		Sphere sy1 = new Sphere(robot3D.getSize()/9);
+		sy1.setTranslateY(robot3D.getSize()/2);
+		sy1.setTranslateX(robot3D.getSize()/4);
+		sy1.setTranslateZ(robot3D.getSize()*2/3);
+		sy1.setMaterial(new PhongMaterial(Color.RED));
+		monRobot.getChildren().add(sy1);
+		
+		Sphere sy2 = new Sphere(robot3D.getSize()/6);
+		sy2.setTranslateY(robot3D.getSize()/2);
+		sy2.setTranslateX(-robot3D.getSize()/4);
+		sy2.setTranslateZ(robot3D.getSize()*2/3);
+		sy2.setMaterial(new PhongMaterial(Color.RED));
+		monRobot.getChildren().add(sy2);
 		
 		
 		world.getChildren().add(monRobot);

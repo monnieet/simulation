@@ -49,7 +49,7 @@ public class ScenMvtCollisionAvoidance extends SimScenario{
 
 		for(Map.Entry<RobotInit,RobotFeatures > e : feature.getRobots().entrySet())
 		{
-			Logger.Detail(this, "afteractivate", "Robot à créer = %s , %s", e.getValue(),e.getKey());
+			Logger.Detail(this, "afteractivate", "bouee à créer = %s , %s", e.getValue(),e.getKey());
 			Post(new RobotInitialize(e.getKey(),e.getValue()));
 		}
 
@@ -120,7 +120,6 @@ public class ScenMvtCollisionAvoidance extends SimScenario{
 			SimEntity b = createChild(Wall.class, wi.getName() , wf);
 			b.initialize(getWi());
 			b.activate();
-			
 		}
 	}
 }

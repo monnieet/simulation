@@ -177,6 +177,10 @@ public class EntityVision extends SimEntity{
 	}
 
 	
+	
+	// Debut Fonctions grille
 
+	// Fin Fonctions grille
+	
 	
 }

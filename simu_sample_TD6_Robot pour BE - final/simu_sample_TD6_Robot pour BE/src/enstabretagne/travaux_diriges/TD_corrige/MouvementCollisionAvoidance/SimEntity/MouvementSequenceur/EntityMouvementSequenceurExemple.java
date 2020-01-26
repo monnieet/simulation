@@ -61,10 +61,10 @@ public class EntityMouvementSequenceurExemple extends EntityMouvementSequenceur{
 			EntityMouvementSequenceurExemple e= (EntityMouvementSequenceurExemple) Owner();
 			Robot r = (Robot) e.getParent();
 			
-			Logger.Information(r, "AfterActivate", "Can see table ? " + r.canSeeTable());
-			Logger.Information(r, "AfterActivate", "Vision ? " + r.AcessibleZone().size());
+//			Logger.Information(r, "AfterActivate", "Can see table ? " + r.canSeeTable());
+//			Logger.Information(r, "AfterActivate", "Vision ? " + r.AcessibleZone().size());
 			
-			Post(r.new MouvementFinished(), getCurrentLogicalDate());
+//			Post(r.new MouvementFinished(), getCurrentLogicalDate());
 		}
 	}
 }

@@ -142,11 +142,7 @@ public class Robot extends SimEntity implements IMovable, IRobot3D {
 				Logger.Information(this, "AfterActivate", "Robot trouv�=" + o.getName());
 
 			Logger.Information(this, "AfterActivate", "Can see bad Robot ? " + canSeeBadRobot());
-<<<<<<< HEAD
-			//Logger.Information(this, "AfterActivate", "PointVision " + AcessibleZone().size());
-			Logger.Information(this, "AfterActivate", "DistanceBadrobot " + lineOfSight.getHeight());
-=======
->>>>>>> j
+
 			rvd.activate();
 		}
 		rmv.activate();
@@ -201,51 +197,49 @@ public class Robot extends SimEntity implements IMovable, IRobot3D {
 
 	}
 
-
-<<<<<<< HEAD
-@SuppressWarnings("unchecked")
-	public boolean Vision() {
-		
-		//syntaxe complexe ci dessous: (List<Wall>) (List<?>) est une astuce pour caster les membres d'une liste
-		//simo -> (xxxxx) est une lambda expression. C'est une mani�re tr�s compacte d'exprimer une functionnalinterface
-		//au final on cherche uniquement des vrais murs (pas les objets de type table par exemple
-		List<Wall> walls = (List<Wall>) (List<?>) getEngine()
-				.requestSimObject(simo -> (simo instanceof Wall) && ((Wall) simo).getType() == 2);
-		List<Bounds> bounds = new ArrayList<Bounds>();
-		for (Wall w : walls) {
-			bounds.addAll(w.getBounds());
-		}
-
-	    return false;
-
-	}
+//@SuppressWarnings("unchecked")
+//	public boolean Vision() {
+//		
+//		//syntaxe complexe ci dessous: (List<Wall>) (List<?>) est une astuce pour caster les membres d'une liste
+//		//simo -> (xxxxx) est une lambda expression. C'est une mani�re tr�s compacte d'exprimer une functionnalinterface
+//		//au final on cherche uniquement des vrais murs (pas les objets de type table par exemple
+//		List<Wall> walls = (List<Wall>) (List<?>) getEngine()
+//				.requestSimObject(simo -> (simo instanceof Wall) && ((Wall) simo).getType() == 2);
+//		List<Bounds> bounds = new ArrayList<Bounds>();
+//		for (Wall w : walls) {
+//			bounds.addAll(w.getBounds());
+//		}
+//
+//	    return false;
+//
+//	}
 
 
-	/*
-	@SuppressWarnings("unchecked")
-	public List<Point3D> AcessibleZone(){
-		
-		List<Point3D> zone =Zone();
-		List<Point3D> AcessibleZone =new ArrayList<Point3D>();
-		
-		
-		List<Wall> walls = (List<Wall>) (List<?>) getEngine()
-				.requestSimObject(simo -> (simo instanceof Wall) && ((Wall) simo).getType() == 2);
-		List<Bounds> bounds = new ArrayList<Bounds>();
-		
-		for (Wall w : walls) {
-			bounds.addAll(w.getBounds());
-		}
-		
-		for (Point3D p : zone) {
-			boolean isAcessible = BorderAndPathGenerator.intervisibilityBetween(p, Util.rectifi(getPosition()),
-					bounds);
-			if (isAcessible){
-				AcessibleZone.add(p);	
-			}	
-		}
-		return AcessibleZone;
-	}
+	
+//	@SuppressWarnings("unchecked")
+//	public List<Point3D> AcessibleZone(){
+//		
+//		List<Point3D> zone =Zone();
+//		List<Point3D> AcessibleZone =new ArrayList<Point3D>();
+//		
+//		
+//		List<Wall> walls = (List<Wall>) (List<?>) getEngine()
+//				.requestSimObject(simo -> (simo instanceof Wall) && ((Wall) simo).getType() == 2);
+//		List<Bounds> bounds = new ArrayList<Bounds>();
+//		
+//		for (Wall w : walls) {
+//			bounds.addAll(w.getBounds());
+//		}
+//		
+//		for (Point3D p : zone) {
+//			boolean isAcessible = BorderAndPathGenerator.intervisibilityBetween(p, Util.rectifi(getPosition()),
+//					bounds);
+//			if (isAcessible){
+//				AcessibleZone.add(p);	
+//			}	
+//		}
+//		return AcessibleZone;
+//	}
 	
 	public class StartMouvement extends SimEvent {
 
@@ -265,9 +259,7 @@ public class Robot extends SimEntity implements IMovable, IRobot3D {
 			
 		}
 	}
-	*/
-=======
->>>>>>> j
+	
 
 	@Override
 	protected void BeforeDeactivating(IEntity sender, boolean starting) {
